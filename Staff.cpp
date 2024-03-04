@@ -1,14 +1,24 @@
-#include <iostream>
-using namespace std;
 #include "Staff.h"
+using namespace std;
 
 
-Staff :: Staff() : freecars(0), priceofdelivery(0) {}
+
+
+
+Staff() : freecars(0), priceofdelivery(0) {}
+
+    Staff(int valuex, bool boolean) : priceofdelivery(valuex) {
+        if (boolean) {
+            freecars = 1;
+        } else {
+            cout << "No cars available" << endl;
+        }
+    }
+
+    Staff(int valuex) : priceofdelivery(valuex), freecars(1) {}
 
     
-   Staff :: Staff(int valuex, bool boolean) : priceofdelivery(valuex), freecars(boolean ? 1 : 0) {}
-
-    Staff ::Staff(int valuex) : Staff(valuex, true) {} 
+    Staff(const Staff& other) : freecars(other.freecars), priceofdelivery(other.priceofdelivery) {}
 
     ~Staff() {
         cout << "Staff object destroyed" << endl;
