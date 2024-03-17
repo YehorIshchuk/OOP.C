@@ -2,51 +2,29 @@
 using namespace std;
 
 
+
 class Customer {
-private:
+public:
     int numberoforders;
     int profit;
-    int* data;
-    int age;
-    string name;
+    string person;
+    string company;
 
-public:
-    
-    Customer(int value) : numberoforders(5), profit(1079) {
-        data = new int(value);
+    Customer &operator=(const Customer &rhs){
+if (this != &rhs){
+    profit = rhs.profit;
+}
+return *this;
     }
 
-    
-    Customer(Customer && other)  {
-        cout << "Move constructor was called" << endl;
-        data = other.data;
-        other.data = nullptr;
-    }
+    Customer() : numberoforders(5), profit(1079), person("Olersandr Petrenko"), company("Microsoft"){}
 
-    
     ~Customer() {
-        delete data;
-        cout << "Customer object destroyed" << endl;
+        cout << "Customer destructor was called " << endl;
     }
 
-    
-    Customer operator-() const {
-        Customer result(*this); 
-        *result.data = -*result.data; 
-        return result;
-    }
-
-    
-    Customer operator+(const Customer& other) const {
-        Customer result(0);
-        *result.data = *data + *other.data;
-        return result;
-    }
-
-    
-    void Print() const {
+    void Print() {
         cout << "Number of Orders: " << numberoforders << endl;
         cout << "Profit: " << profit << endl;
-        cout << "Data value: " << *data << endl;
     }
 };
