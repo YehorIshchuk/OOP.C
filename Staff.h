@@ -1,34 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+
 class Staff {
 public:
     int freecars;
     int priceofdelivery;
-    static int orders;
+    int salary;
+    int tips;
+    string dish;
 
-    static int GetCount() {
-        return orders;
-    }
+    //Staff(const Staff& other) : salary{other.salary} {
+        //cout << "Staff copy constructor" << endl;
+    //}
 
-    static void OrdersCount() {
-        orders++;
-    }
-
-    Staff() : freecars(0), priceofdelivery(0) {}
-
-    Staff(int valuex, bool boolean) : priceofdelivery(valuex) {
-        if (boolean) {
-            freecars = 1;
-        } else {
-            cout << "No cars available" << endl;
-        }
-    }
-
-    Staff(int valuex) : priceofdelivery(valuex), freecars(1) {}
+    Staff() : freecars(3), priceofdelivery(75), salary(20000), tips(50), dish("Pasta") {}
 
     
-    Staff(const Staff& other) : freecars(other.freecars), priceofdelivery(other.priceofdelivery) {}
 
     ~Staff() {
-        cout << "Staff object destroyed" << endl;
+        cout << "Staff destructor was called" << endl;
     }
 
     void Print() {

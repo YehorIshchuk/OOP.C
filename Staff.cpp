@@ -1,25 +1,12 @@
-#include "Staff.h"
+#include <iostream>
 using namespace std;
+#include "Staff.h"
 
 
-
-
-
-Staff() : freecars(0), priceofdelivery(0) {}
-
-    Staff(int valuex, bool boolean) : priceofdelivery(valuex) {
-        if (boolean) {
-            freecars = 1;
-        } else {
-            cout << "No cars available" << endl;
-        }
-    }
-
-    Staff(int valuex) : priceofdelivery(valuex), freecars(1) {}
+ Staff :: Staff() : freecars(3), priceofdelivery(75), salary(20000), tips(50), dish("Pasta") {}
 
     
-    Staff(const Staff& other) : freecars(other.freecars), priceofdelivery(other.priceofdelivery) {}
 
-    ~Staff() {
-        cout << "Staff object destroyed" << endl;
+    Staff :: ~Staff() {
+        cout << "Staff destructor was called" << endl;
     }
