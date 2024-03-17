@@ -1,11 +1,10 @@
 #include <iostream>
-#include"Menu.h"
+#include "Menu.h"
 using namespace std;
 
 
+Menu :: Menu() : price(550), nameofdish("Carbonara") {}
 
-Menu() : price(0), nameofdish("Carbonara") {
-    }
-    ~Menu() {
-        cout << "Menu object destroyed" << endl;
+    Menu :: ~Menu() {
+        cout << "Menu destructor was called" << endl;
     }
